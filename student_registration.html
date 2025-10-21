@@ -227,12 +227,13 @@
       <div class="bg-white shadow-md rounded-lg p-6">
         <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
           <h2 class="text-xl font-bold text-green-600 mb-4 md:mb-0">
-            Delete Record
+            Student Registration
           </h2>
 
           <div class="flex flex-col sm:flex-row sm:items-center gap-3">
             <!-- Add Student Button -->
             <button
+              id="openModalBtn"
               class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg font-semibold flex items-center"
             >
               <svg
@@ -278,8 +279,104 @@
           </div>
         </div>
 
+        <!-- Modal -->
+        <div
+          id="studentModal"
+          class="hidden fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50"
+        >
+          <div class="bg-white rounded-lg shadow-lg w-full max-w-md p-6 relative">
+            <h2 class="text-2xl font-bold text-gray-700 mb-4 text-center">
+              Create New Record
+            </h2>
+
+            <button
+              id="closeModalBtn"
+              class="absolute top-2 right-3 text-gray-400 hover:text-gray-600 text-2xl"
+            >
+              &times;
+            </button>
+
+            <form id="studentForm" class="space-y-4">
+              <div>
+                <label class="block text-gray-700 text-sm mb-1">LRN</label>
+                <input
+                  type="text"
+                  placeholder="Enter LRN"
+                  class="w-full border rounded-lg p-2 focus:ring-2 focus:ring-green-400"
+                  required
+                />
+              </div>
+
+              <div>
+                <label class="block text-gray-700 text-sm mb-1">Name</label>
+                <input
+                  type="text"
+                  placeholder="Enter Full Name"
+                  class="w-full border rounded-lg p-2 focus:ring-2 focus:ring-green-400"
+                  required
+                />
+              </div>
+
+              <div>
+                <label class="block text-gray-700 text-sm mb-1">Grade Level</label>
+                <select
+                  class="w-full border rounded-lg p-2 focus:ring-2 focus:ring-green-400"
+                  required
+                >
+                  <option value="">Select Grade</option>
+                  <option>Grade 1</option>
+                  <option>Grade 2</option>
+                  <option>Grade 3</option>
+                  <option>Grade 4</option>
+                  <option>Grade 5</option>
+                  <option>Grade 6</option>
+                </select>
+              </div>
+
+              <div class="flex space-x-4">
+                <div class="w-1/2">
+                  <label class="block text-gray-700 text-sm mb-1">Age</label>
+                  <input
+                    type="number"
+                    placeholder="Age"
+                    class="w-full border rounded-lg p-2 focus:ring-2 focus:ring-green-400"
+                    required
+                  />
+                </div>
+                <div class="w-1/2">
+                  <label class="block text-gray-700 text-sm mb-1">Birthday</label>
+                  <input
+                    type="date"
+                    class="w-full border rounded-lg p-2 focus:ring-2 focus:ring-green-400"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label class="block text-gray-700 text-sm mb-1">Gender</label>
+                <select
+                  class="w-full border rounded-lg p-2 focus:ring-2 focus:ring-green-400"
+                  required
+                >
+                  <option value="">Select Gender</option>
+                  <option>Male</option>
+                  <option>Female</option>
+                </select>
+              </div>
+
+              <button
+                type="submit"
+                class="w-full bg-green-600 hover:bg-green-700 text-white py-2 rounded-lg font-semibold transition"
+              >
+                Save Record
+              </button>
+            </form>
+          </div>
+        </div>
+
         <!-- Table -->
-        <div class="overflow-x-auto shadow-md sm:rounded-lg">
+        <div class="overflow-x-auto shadow-md sm:rounded-lg mt-4">
           <table class="min-w-full text-sm text-left text-gray-600 border border-gray-200">
             <thead class="text-xs bg-green-500 text-white uppercase">
               <tr>
@@ -299,9 +396,7 @@
                 <td class="px-4 py-3 border">15</td>
                 <td class="px-4 py-3 border">Male</td>
                 <td class="px-4 py-3 border text-center">
-                  <button class="bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded-md text-xs">
-                    Delete
-                  </button>
+                  <button class="bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded-md text-xs">Delete</button>
                 </td>
               </tr>
               <tr class="hover:bg-gray-50">
@@ -311,9 +406,7 @@
                 <td class="px-4 py-3 border">14</td>
                 <td class="px-4 py-3 border">Female</td>
                 <td class="px-4 py-3 border text-center">
-                  <button class="bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded-md text-xs">
-                    Delete
-                  </button>
+                  <button class="bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded-md text-xs">Delete</button>
                 </td>
               </tr>
               <tr class="hover:bg-gray-50">
@@ -323,9 +416,7 @@
                 <td class="px-4 py-3 border">16</td>
                 <td class="px-4 py-3 border">Male</td>
                 <td class="px-4 py-3 border text-center">
-                  <button class="bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded-md text-xs">
-                    Delete
-                  </button>
+                  <button class="bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded-md text-xs">Delete</button>
                 </td>
               </tr>
               <tr class="hover:bg-gray-50">
@@ -335,9 +426,7 @@
                 <td class="px-4 py-3 border">15</td>
                 <td class="px-4 py-3 border">Female</td>
                 <td class="px-4 py-3 border text-center">
-                  <button class="bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded-md text-xs">
-                    Delete
-                  </button>
+                  <button class="bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded-md text-xs">Delete</button>
                 </td>
               </tr>
               <tr class="hover:bg-gray-50">
@@ -347,9 +436,7 @@
                 <td class="px-4 py-3 border">17</td>
                 <td class="px-4 py-3 border">Male</td>
                 <td class="px-4 py-3 border text-center">
-                  <button class="bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded-md text-xs">
-                    Delete
-                  </button>
+                  <button class="bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded-md text-xs">Delete</button>
                 </td>
               </tr>
               <tr class="hover:bg-gray-50">
@@ -359,9 +446,7 @@
                 <td class="px-4 py-3 border">14</td>
                 <td class="px-4 py-3 border">Female</td>
                 <td class="px-4 py-3 border text-center">
-                  <button class="bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded-md text-xs">
-                    Delete
-                  </button>
+                  <button class="bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded-md text-xs">Delete</button>
                 </td>
               </tr>
               <tr class="hover:bg-gray-50">
@@ -371,9 +456,7 @@
                 <td class="px-4 py-3 border">16</td>
                 <td class="px-4 py-3 border">Male</td>
                 <td class="px-4 py-3 border text-center">
-                  <button class="bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded-md text-xs">
-                    Delete
-                  </button>
+                  <button class="bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded-md text-xs">Delete</button>
                 </td>
               </tr>
               <tr class="hover:bg-gray-50">
@@ -383,9 +466,7 @@
                 <td class="px-4 py-3 border">17</td>
                 <td class="px-4 py-3 border">Female</td>
                 <td class="px-4 py-3 border text-center">
-                  <button class="bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded-md text-xs">
-                    Delete
-                  </button>
+                  <button class="bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded-md text-xs">Delete</button>
                 </td>
               </tr>
               <tr class="hover:bg-gray-50">
@@ -395,9 +476,7 @@
                 <td class="px-4 py-3 border">15</td>
                 <td class="px-4 py-3 border">Male</td>
                 <td class="px-4 py-3 border text-center">
-                  <button class="bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded-md text-xs">
-                    Delete
-                  </button>
+                  <button class="bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded-md text-xs">Delete</button>
                 </td>
               </tr>
               <tr class="hover:bg-gray-50">
@@ -407,9 +486,7 @@
                 <td class="px-4 py-3 border">14</td>
                 <td class="px-4 py-3 border">Female</td>
                 <td class="px-4 py-3 border text-center">
-                  <button class="bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded-md text-xs">
-                    Delete
-                  </button>
+                  <button class="bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded-md text-xs">Delete</button>
                 </td>
               </tr>
             </tbody>
@@ -418,7 +495,7 @@
       </div>
     </main>
 
-    <!-- Filter / Search Script & Sidebar Toggle -->
+    <!-- Scripts -->
     <script>
       // Search filter
       document.getElementById('searchInput').addEventListener('keyup', function() {
@@ -426,7 +503,6 @@
         const rows = document.querySelectorAll('#studentTable tr');
 
         rows.forEach(row => {
-          // check that the row has at least 2 cells (defensive)
           if (row.cells && row.cells.length > 1) {
             const name = row.cells[1].textContent.toLowerCase();
             row.style.display = name.includes(filter) ? '' : 'none';
@@ -447,6 +523,25 @@
       overlay.addEventListener("click", () => {
         sidebar.classList.add("-translate-x-full");
         overlay.classList.add("hidden");
+      });
+
+      // Modal
+      const openModalBtn = document.getElementById("openModalBtn");
+      const closeModalBtn = document.getElementById("closeModalBtn");
+      const studentModal = document.getElementById("studentModal");
+
+      openModalBtn.addEventListener("click", () => {
+        studentModal.classList.remove("hidden");
+      });
+
+      closeModalBtn.addEventListener("click", () => {
+        studentModal.classList.add("hidden");
+      });
+
+      studentModal.addEventListener("click", (e) => {
+        if (e.target === studentModal) {
+          studentModal.classList.add("hidden");
+        }
       });
     </script>
   </body>
