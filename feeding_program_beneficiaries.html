@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Feeding Program Beneficiaries - GROWTHetect</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gray-100">
+    <!-- Mobile Navbar -->
+    <header
+      class="md:hidden bg-gray-900 text-white flex justify-between items-center px-4 py-3"
+    >
+      <h1 class="text-lg font-bold tracking-wide">GROWTHetect</h1>
+      <button id="menu-toggle" class="focus:outline-none">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="w-6 h-6"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 6h16M4 12h16M4 18h16"
+          />
+        </svg>
+      </button>
+    </header>
+
+    <!-- Sidebar -->
+    <aside
+      id="sidebar"
+      class="fixed left-0 top-0 h-full w-64 bg-gray-900 text-white shadow-lg transform -translate-x-full md:translate-x-0 transition-transform duration-300 ease-in-out flex flex-col z-50"
+    >
+      <!-- Brand -->
+      <div class="p-6 border-b border-gray-700">
+        <h1 class="text-2xl font-extrabold text-green-400 tracking-wide">
+          GROWTHetect
+        </h1>
+      </div>
+
+      <!-- Role -->
+      <div class="px-6 py-3 border-b border-gray-700">
+        <h2
+          class="text-sm font-semibold text-gray-300 uppercase tracking-wide"
+        >
+          Nutritionist Dashboard
+        </h2>
+      </div>
+
+      <!-- Navigation -->
+      <nav class="flex-1 mt-4 px-4 space-y-2">
+        <a
+          href="index.html"
+          class="flex items-center px-4 py-2 rounded-lg hover:bg-gray-800 transition"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-5 h-5 mr-3 text-green-400"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M3 12l2-2m0 0l7-7 7 7m-9 2v8m-4 0h8"
+            />
+          </svg>
+          Overview
+        </a>
+
+        <a
+          href="monthly_tracking.html"
+          class="flex items-center px-4 py-2 rounded-lg hover:bg-gray-800 transition"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-5 h-5 mr-3 text-green-400"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M5 12h14M12 5l7 7-7 7"
+            />
+          </svg>
+          Monthly Tracking
+        </a>
+
+        <a
+          href="data_logs.html"
+          class="flex items-center px-4 py-2 rounded-lg hover:bg-gray-800 transition"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-5 h-5 mr-3 text-green-400"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M7 8h10M7 12h10m-9 4h9"
+            />
+          </svg>
+          Data Logs
+        </a>
+
+        <a
+          href="report_generation.html"
+          class="flex items-center px-4 py-2 rounded-lg hover:bg-gray-800 transition"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-5 h-5 mr-3 text-green-400"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M12 8v8m-4-4h8m4 4a9 9 0 11-18 0 9 9 0 0118 0z"
+            />
+          </svg>
+          Report Generation
+        </a>
+
+        <a
+          href="student_registration.html"
+          class="flex items-center px-4 py-2 rounded-lg hover:bg-gray-800 transition"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-5 h-5 mr-3 text-green-400"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M16 17l-4 4m0 0l-4-4m4 4V3"
+            />
+          </svg>
+          Student Registration
+        </a>
+
+        <a
+          href="feeding_program_beneficiaries.html"
+          class="flex items-center px-4 py-2 rounded-lg bg-gray-800 transition"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-5 h-5 mr-3 text-green-400"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M3 7h18M3 12h18m-9 5h9"
+            />
+          </svg>
+          Feeding Program Beneficiaries
+        </a>
+
+        <a
+          href="feeding_program_attendance.html"
+          class="flex items-center px-4 py-2 rounded-lg hover:bg-gray-800 transition"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-5 h-5 mr-3 text-green-400"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M9 17v-6a2 2 0 114 0v6m-4 0h4"
+            />
+          </svg>
+          Feeding Program Attendance
+        </a>
+      </nav>
+
+      <!-- Profile -->
+      <div class="border-t border-gray-700 p-4">
+        <div class="flex items-center space-x-3">
+          <img
+            src="https://ui-avatars.com/api/?name=Nutritionist"
+            class="w-10 h-10 rounded-full"
+            alt="Profile"
+          />
+          <div>
+            <p class="font-medium text-gray-100">Nutritionist Name</p>
+            <a href="#" class="text-sm text-green-400 hover:underline"
+              >View Profile</a
+            >
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="md:ml-64 p-6">
+      <h2 class="text-2xl font-bold text-green-600 mb-6">
+        Qualified Students for Feeding Program
+      </h2>
+
+      <!-- Search Filter -->
+      <div class="flex justify-between items-center mb-4">
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Search by name..."
+          class="border border-gray-300 rounded-lg px-4 py-2 w-64 focus:outline-none focus:ring-2 focus:ring-green-500"
+        />
+      </div>
+
+      <!-- Table -->
+      <div class="overflow-x-auto bg-white shadow-md rounded-lg">
+        <table class="w-full border-collapse text-sm text-gray-700">
+          <thead class="bg-green-500 text-white uppercase text-xs">
+            <tr>
+              <th class="px-4 py-3 border">LRN No.</th>
+              <th class="px-4 py-3 border">Name</th>
+              <th class="px-4 py-3 border">Grade Level</th>
+              <th class="px-4 py-3 border">Gender</th>
+              <th class="px-4 py-3 border">BMI Status</th>
+            </tr>
+          </thead>
+          <tbody id="tableBody">
+            <tr class="hover:bg-gray-50">
+              <td class="px-4 py-3 border">2023101</td>
+              <td class="px-4 py-3 border">Juan Dela Cruz</td>
+              <td class="px-4 py-3 border">5</td>
+              <td class="px-4 py-3 border">Male</td>
+              <td class="px-4 py-3 border text-green-600 font-semibold">Normal</td>
+            </tr>
+            <tr class="hover:bg-gray-50">
+              <td class="px-4 py-3 border">2023102</td>
+              <td class="px-4 py-3 border">Maria Santos</td>
+              <td class="px-4 py-3 border">6</td>
+              <td class="px-4 py-3 border">Female</td>
+              <td class="px-4 py-3 border text-red-600 font-semibold">Underweight</td>
+            </tr>
+            <tr class="hover:bg-gray-50">
+              <td class="px-4 py-3 border">2023103</td>
+              <td class="px-4 py-3 border">Pedro Ramirez</td>
+              <td class="px-4 py-3 border">4</td>
+              <td class="px-4 py-3 border">Male</td>
+              <td class="px-4 py-3 border text-yellow-600 font-semibold">Overweight</td>
+            </tr>
+            <tr class="hover:bg-gray-50">
+              <td class="px-4 py-3 border">2023104</td>
+              <td class="px-4 py-3 border">Ana Reyes</td>
+              <td class="px-4 py-3 border">3</td>
+              <td class="px-4 py-3 border">Female</td>
+              <td class="px-4 py-3 border text-green-600 font-semibold">Normal</td>
+            </tr>
+            <tr class="hover:bg-gray-50">
+              <td class="px-4 py-3 border">2023105</td>
+              <td class="px-4 py-3 border">Jose Lopez</td>
+              <td class="px-4 py-3 border">2</td>
+              <td class="px-4 py-3 border">Male</td>
+              <td class="px-4 py-3 border text-red-600 font-semibold">Underweight</td>
+            </tr>
+            <tr class="hover:bg-gray-50">
+              <td class="px-4 py-3 border">2023106</td>
+              <td class="px-4 py-3 border">Carmela Bautista</td>
+              <td class="px-4 py-3 border">6</td>
+              <td class="px-4 py-3 border">Female</td>
+              <td class="px-4 py-3 border text-green-600 font-semibold">Normal</td>
+            </tr>
+            <tr class="hover:bg-gray-50">
+              <td class="px-4 py-3 border">2023107</td>
+              <td class="px-4 py-3 border">Miguel Torres</td>
+              <td class="px-4 py-3 border">4</td>
+              <td class="px-4 py-3 border">Male</td>
+              <td class="px-4 py-3 border text-yellow-600 font-semibold">Overweight</td>
+            </tr>
+            <tr class="hover:bg-gray-50">
+              <td class="px-4 py-3 border">2023108</td>
+              <td class="px-4 py-3 border">Lucia Mendoza</td>
+              <td class="px-4 py-3 border">5</td>
+              <td class="px-4 py-3 border">Female</td>
+              <td class="px-4 py-3 border text-green-600 font-semibold">Normal</td>
+            </tr>
+            <tr class="hover:bg-gray-50">
+              <td class="px-4 py-3 border">2023109</td>
+              <td class="px-4 py-3 border">Rico Fernandez</td>
+              <td class="px-4 py-3 border">3</td>
+              <td class="px-4 py-3 border">Male</td>
+              <td class="px-4 py-3 border text-red-600 font-semibold">Underweight</td>
+            </tr>
+            <tr class="hover:bg-gray-50">
+              <td class="px-4 py-3 border">2023110</td>
+              <td class="px-4 py-3 border">Sofia Garcia</td>
+              <td class="px-4 py-3 border">2</td>
+              <td class="px-4 py-3 border">Female</td>
+              <td class="px-4 py-3 border text-green-600 font-semibold">Normal</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Generate Report Button -->
+      <div class="flex justify-end mt-6">
+        <button
+          class="bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-lg font-semibold shadow-md"
+        >
+          Generate Report
+        </button>
+      </div>
+    </main>
+
+    <!-- Script for Sidebar and Search -->
+    <script>
+      const menuToggle = document.getElementById("menu-toggle");
+      const sidebar = document.getElementById("sidebar");
+
+      menuToggle.addEventListener("click", () => {
+        sidebar.classList.toggle("-translate-x-full");
+      });
+
+      // Search filter
+      const searchInput = document.getElementById("searchInput");
+      const tableBody = document.getElementById("tableBody");
+
+      searchInput.addEventListener("keyup", () => {
+        const searchValue = searchInput.value.toLowerCase();
+        const rows = tableBody.getElementsByTagName("tr");
+
+        for (let row of rows) {
+          const nameCell = row.getElementsByTagName("td")[1];
+          if (nameCell) {
+            const name = nameCell.textContent.toLowerCase();
+            row.style.display = name.includes(searchValue) ? "" : "none";
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
