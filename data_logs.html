@@ -524,5 +524,138 @@
         sidebar.classList.toggle("-translate-x-full");
       });
     </script>
+
+    <!-- ✅ View Modal -->
+<div id="viewModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+  <div class="bg-white rounded-lg shadow-lg w-11/12 max-w-4xl p-6 relative">
+    <!-- Close Button -->
+    <button id="closeModal" class="absolute top-2 right-3 text-gray-500 text-2xl hover:text-gray-700">&times;</button>
+
+    <h2 class="text-2xl font-bold text-center mb-4">Current BMI as of October</h2>
+
+    <!-- Student Info Table -->
+    <table class="min-w-full border mb-6 text-sm">
+      <thead class="bg-gray-200">
+        <tr>
+          <th class="px-3 py-2 border">LRN no.</th>
+          <th class="px-3 py-2 border">Name</th>
+          <th class="px-3 py-2 border">Age</th>
+          <th class="px-3 py-2 border">Gender</th>
+          <th class="px-3 py-2 border">Weight</th>
+          <th class="px-3 py-2 border">Height</th>
+          <th class="px-3 py-2 border">BMI</th>
+          <th class="px-3 py-2 border">BMI Status</th>
+        </tr>
+      </thead>
+      <tbody id="studentData">
+        <!-- Filled dynamically -->
+      </tbody>
+    </table>
+
+    <!-- BMI Line Chart -->
+    <div class="bg-gray-50 border rounded-lg p-4">
+      <canvas id="bmiChart" height="100"></canvas>
+    </div>
+
+    <!-- Buttons -->
+    <div class="flex justify-end mt-6 space-x-3">
+      <button id="cancelBtn" class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-md">Close</button>
+      <button id="downloadBtn" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md">Download PDF</button>
+    </div>
+  </div>
+</div>
+
+<!-- ✅ Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  // Get modal elements
+  const modal = document.getElementById("viewModal");
+  const closeModal = document.getElementById("closeModal");
+  const cancelBtn = document.getElementById("cancelBtn");
+
+  // Select all View buttons
+  const viewButtons = document.querySelectorAll("button.bg-green-500");
+
+  // Function to open modal and show student data
+  viewButtons.forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      const row = e.target.closest("tr");
+      const cells = row.querySelectorAll("td");
+
+      // Extract data from the selected row
+      const student = {
+        lrn: cells[0].innerText,
+        name: cells[1].innerText,
+        age: cells[2].innerText,
+        gender: cells[3].innerText,
+        weight: cells[4].innerText + " kg",
+        height: cells[5].innerText + " cm",
+        bmi: cells[6].innerText,
+        status: cells[7].innerText,
+      };
+
+      // Fill table inside modal
+      document.getElementById("studentData").innerHTML = `
+        <tr>
+          <td class="border px-3 py-2">${student.lrn}</td>
+          <td class="border px-3 py-2">${student.name}</td>
+          <td class="border px-3 py-2">${student.age}</td>
+          <td class="border px-3 py-2">${student.gender}</td>
+          <td class="border px-3 py-2">${student.weight}</td>
+          <td class="border px-3 py-2">${student.height}</td>
+          <td class="border px-3 py-2">${student.bmi}</td>
+          <td class="border px-3 py-2 font-semibold text-green-600">${student.status}</td>
+        </tr>
+      `;
+
+      // Show modal
+      modal.classList.remove("hidden");
+
+      // Destroy old chart if exists
+      if (window.bmiChartInstance) window.bmiChartInstance.destroy();
+
+      // Create new Chart.js line chart
+      const ctx = document.getElementById("bmiChart").getContext("2d");
+      window.bmiChartInstance = new Chart(ctx, {
+        type: "line",
+        data: {
+          labels: [
+            "January", "February", "March", "April", "May",
+            "June", "July", "August", "September", "October"
+          ],
+          datasets: [{
+            label: `${student.name}'s Monthly BMI Progress`,
+            data: [16.5, 16.7, 16.8, 17.0, 17.3, 17.5, 17.7, 17.9, 18.0, parseFloat(student.bmi)],
+            borderColor: "#22c55e",
+            backgroundColor: "rgba(34,197,94,0.1)",
+            borderWidth: 2,
+            tension: 0.4,
+            pointBackgroundColor: "#16a34a",
+          }],
+        },
+        options: {
+          responsive: true,
+          scales: {
+            y: {
+              beginAtZero: false,
+              title: { display: true, text: "BMI" },
+            },
+            x: {
+              title: { display: true, text: "Months" },
+            },
+          },
+        },
+      });
+    });
+  });
+
+  // Close modal
+  closeModal.addEventListener("click", () => modal.classList.add("hidden"));
+  cancelBtn.addEventListener("click", () => modal.classList.add("hidden"));
+  window.addEventListener("click", (e) => {
+    if (e.target === modal) modal.classList.add("hidden");
+  });
+</script>
+
   </body>
 </html>
